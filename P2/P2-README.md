@@ -47,5 +47,7 @@ In the *Lane_Processings* function two approaches were implemented for lane line
   <b>Figure 5. a)</b> Sliding window for finding lane pixels. <b>b) </b> Search around prior. 
 </p>
 
+### 5. Measure Curvature
+In the function *Calculate_Curvature* the radiuses of left- and right-fit, as well as the distance between the car camera and lane center were calculated with the formula, and the conversion parameters *x(y)m_per_pixel*. Then in the video pipeline the average radius is calculated and displayed with center_distance on the frame (up-left in the cover image). 
 
 ## II. Discussion
