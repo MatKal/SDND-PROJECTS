@@ -5,6 +5,7 @@
 ![alt text](https://github.com/MatKal/SDND-PROJECTS/blob/main/P2/COVER.png)
 
 ## I. The Pipline
+[Video Output **HERE**](https://github.com/MatKal/SDND-PROJECTS/blob/main/P2/ALF_Output.mp4)
 ### 1. Camera Calibration
  
 The camera calibration is done by traversing and finding corners in all the chessboard pictures in the folder */camera_cal*, then calculating the average correction matrix and distortion coefficients with the *cv2.calibrateCamera* function. **Figure 1** shows an example undistorted and warped chessboard image. **Figure 2** shows an example of distortion-corrected road image. 
@@ -36,12 +37,15 @@ The images were then warped by *cv2.warpPerspective* function in the *P2_Main* f
 </p>
 
 ### 4. Identifying Lane Pixels & Fitting Polynomial
-In the *Lane_Processings* function
+In the *Lane_Processings* function two approaches were implemented for lane lines identification. If there is no prior detected fit then the sliding window method would be used to find lane pixels and fit the polynomial with the pixels found (functions: *Fit_Polynomial* and *Find_Lane_Pixels*, **Figure 5. a)**). If there exists a fit detected in previous frames, the *Search_Around_Prior* method will be used to find fit quicker (**Figure 5. b)**). 
 
-<figure class="video_container">
-  <video controls="true" allowfullscreen="true" poster="https://github.com/MatKal/SDND-PROJECTS/blob/main/P2/COVER.png">
-    <source src="https://github.com/MatKal/SDND-PROJECTS/blob/main/P2/ALF_Output.mp4" type="video/mp4">
-  </video>
-</figure>
+<p align="center">
+ <img src="https://github.com/MatKal/SDND-PROJECTS/blob/main/P2/output/FL1.png"/)><img src="https://github.com/MatKal/SDND-PROJECTS/blob/main/P2/output/FL2.png"/>
+</p>
+
+<p align="center">
+  <b>Figure 5. a)</b> Sliding window for finding lane pixels. <b>b) </b> Search around prior. 
+</p>
+
 
 ## II. Discussion
