@@ -2,7 +2,7 @@
 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-![alt text](https://github.com/MatKal/SDND-PROJECTS/blob/main/P1/Cover.png?raw=true)
+![cover](https://github.com/MatKal/SDND-PROJECTS/blob/main/P1/Cover.png?raw=true)
 
 ### 1. Pipeline Description
 
