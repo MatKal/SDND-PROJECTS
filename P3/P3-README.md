@@ -35,5 +35,46 @@ In step ***2) data augmentation***, each image will go through a type of transfo
 | Random brightness  	|  10%  |
 | Random contrast	    |  10%  |
 
-In step ***3) normalization & grayscaling***, each image will be converted to grayscale image **(32, 32, 1)** and normalized by ***((image - 128) / 128)***. Image below shows a comparison between original and processed image in the training set: 
+In step ***3) normalization & grayscaling***, each image will be converted to grayscale image **(32, 32, 1)** and normalized by ***((image - 128) / 128)***, scaling the pixel value from **\[0~255]** to **\[-1, +1]**. Image below shows a comparison between original and processed image in the training set: 
 ![f3](https://github.com/PictoNailer/SDND-PROJECTS/blob/main/P3/output/Data_preproc.png)
+
+### 2. Final Model Architecture
+My final model consisted of the following layers:
+
+|            Layer            |                        Description                       | 
+|:---------------------------:|:--------------------------------------------------------:| 
+| Input                       | 32x32x1 Grayscale image                                  | 
+| Convolution Layer 1         | 5x5x6 Filter. 1x1 Strides. Valid padding. Out: 28x28x6 	 |
+| RELU          					         | Activation layer    	                                    |
+| Batch Normalization - CONV1 |      	                                                   |
+| Max Pooling        	        | 2x2 Strides. Valid padding. Out: 14x14x6                 |
+| Convolution Layer 2         | 5x5x16 Filter. 1x1 Strides. Valid Padding. Out: 10x10x16 |
+| RELU          					         | Activation layer    	                                    |
+| Batch Normalization - CONV2 |      	                                                   |
+| Max Pooling        	        | 2x2 Strides. Valid padding. Out: 5x5x16                  |
+| Flatten          			        | Out: 400    	                                            |
+| Fully Connected Layer 1	    | Out: 120                                                 |
+| RELU          					         | Activation layer                                        	|
+| Batch Normalization - FC1   |                                                         	|
+| Droput	                     | Keep probability: 0.5                                    |
+| Fully Connected Layer 2	    | Out: 84                                                  |
+| RELU          					         | Activation layer                                        	|
+| Batch Normalization - FC2   |      	                                                   |
+| Droput	                     | Keep probability: 0.5                                    |
+| Fully Connected Layer 3	    | Out: 43                                                  |
+
+### 3. Train the Model
+To train the model, I used an Adam optimizer and the following hyperparameters:
+
+1) Learning rate - eta: 0.009. 
+2) Number of epochs: 50. 
+3) Batch size: 128. 
+4) Keep probalbility of dropout layers: 0.5. 
+
+### 4. The Final Solution
+My final model results were:
+
+Training set accuracy of **99.3%**.
+Validation set accuracy of **94.5**.
+Test set accuracy of **92.5**. 
+
