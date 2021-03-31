@@ -16,25 +16,15 @@ The number of unique classes/labels in the data set is: **43**.
 ### 2. Exploratory Visualization of the Datasets.
 Here is an exploratory visualization of the datasets.
 
-***Figure 1*** shows some random images from the training set:
+Image below shows some random images from the training set:
 ![f1](https://github.com/PictoNailer/SDND-PROJECTS/blob/main/P3/output/Dataset-expl.png)
-<p align="center">
-  <b>Figure 1.</b> Random samples in the training set. 
-</p>
 
-***Figure 2*** is a chart showing the distribution of different classes in the datasets:
+Chart below shows the distribution of different classes in the datasets:
 ![f2](https://github.com/PictoNailer/SDND-PROJECTS/blob/main/P3/output/Dataset-visualz.png)
-<p align="center">
-  <b>Figure 2.</b> Numbers of samples per class. 
-</p>
 
 ## II. Design and Test a Model Architecture
 ### 1. Data Preprocessing
-The process of data preprocessing includes three steps: 1) shuffling the 3 sets, 2) data augmentation for the training set, and 3) normalization and grayscaling for validation and test set. ***Figure 3*** shows a comparison between original and processed image in the training set: 
-![f3](https://github.com/PictoNailer/SDND-PROJECTS/blob/main/P3/output/Dataset-expl.png)
-<p align="center">
-  <b>Figure 3.</b> Comparison before/after preprocessing. 
-</p>
+The process of data preprocessing includes three steps: 1) shuffling the 3 sets, 2) data augmentation for the training set, and 3) normalization and grayscaling for validation and test set.
 
 In step ***2) data augmentation***, each image will go through a type of transformation/adjustment randomly:
 |   Operation   |   Probability   | 
@@ -45,3 +35,5 @@ In step ***2) data augmentation***, each image will go through a type of transfo
 | Random brightness  	|  10%  |
 | Random contrast	    |  10%  |
 
+In step ***3) normalization & grayscaling***, each image will be converted to grayscale image **(32, 32, 1)** and normalized by ***((image - 128) / 128)***. Image below shows a comparison between original and processed image in the training set: 
+![f3](https://github.com/PictoNailer/SDND-PROJECTS/blob/main/P3/output/Data_preproc.png)
