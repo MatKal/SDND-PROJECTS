@@ -1,9 +1,7 @@
 # SDND Project 4 - Behavioral Cloning
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
-<<<<<<< HEAD:P4/P4 - README.md
 
 =======
->>>>>>> b9e4edd362bfcb69be3e76e63149e0d471d21847:P4/P4 - README
 ## Writeup Template
 
 ### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
