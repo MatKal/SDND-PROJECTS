@@ -1,3 +1,5 @@
+# P4 - .py Version
+import matplotlib.pyplot as plt
 import numpy as np
 import csv
 import cv2
@@ -91,9 +93,18 @@ model.add(Dropout(rate=0.1))
 model.add(Dense(1)) 
 
 model.compile(loss='mse', optimizer='adam')
-model.fit(X_train, y_train, validation_split=0.2, shuffle=True, epochs=25)
+history_object = model.fit(X_train, y_train, validation_split=0.2, shuffle=True, epochs=25)
 model.save('model.h5')
 
 print('Model Saved!')
+
+print(history_object.history.keys())
+plt.plot(history_object.history['loss'])
+plt.plot(history_object.history['val_loss'])
+plt.title('model mean squared error loss')
+plt.ylabel('mean squared error loss')
+plt.xlabel('epoch')
+plt.legend(['training set', 'validation set'], loc='upper right')
+plt.show()
 
 exit()
