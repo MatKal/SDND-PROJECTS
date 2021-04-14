@@ -115,4 +115,5 @@ Then I recorded more laps (both clockwise and counter-clockwise driving), fortun
 
 Finally after I recorded much more data of these two curves and re-trained the model, the car could get through all of the sections. In the process some errors occurred when it's driving on the straight road, these were solved by recording some more driving data on the normal road sections (to appropriately dilute the data for specific curves). <br>
 
-
+Visualized loss curve is showed below: <br>
+![f2](https://github.com/PictoNailer/SDND-PROJECTS/blob/main/P4/Visualization%20-%20Loss.png)]
