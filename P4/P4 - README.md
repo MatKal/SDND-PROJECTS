@@ -113,4 +113,6 @@ Then I tried using mouse to steer the car. The sudden turns reduced (should be m
 
 Then I recorded more laps (both clockwise and counter-clockwise driving), fortunately the car could drive itself more smoothly and only drove off the road in two curves (the sand strip after the bridge and the curve road after it). 
 
-Finally after I recorded much more data of these two curves and re-trained the model, the car could get through all of the sections. In the process some errors occurred when it's driving on the straight road, these were solved by recording some more driving data on the normal road sections (to appropriately dilute the data for specific curves). 
+Finally after I recorded much more data of these two curves and re-trained the model, the car could get through all of the sections. In the process some errors occurred when it's driving on the straight road, these were solved by recording some more driving data on the normal road sections (to appropriately dilute the data for specific curves). <br>
+
+
