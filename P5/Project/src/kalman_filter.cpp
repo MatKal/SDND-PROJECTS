@@ -6,9 +6,9 @@
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 using std::cout;
+
 /* 
- * Please note that the Eigen library does not initialize 
- *   VectorXd or MatrixXd objects with zeros upon creation.
+ * Please note that the Eigen library does not initialize VectorXd or MatrixXd objects with zeros upon creation.
  */
 
 KalmanFilter::KalmanFilter() {}
@@ -27,18 +27,19 @@ void KalmanFilter::Init(VectorXd &x_in, MatrixXd &P_in, MatrixXd &F_in,
 
 void KalmanFilter::Predict() {
   /**
-   * TODO: predict the state
+   * DONE: Predict the state. 
    */
   x_ = F_ * x_;
   MatrixXd Ft = F_.transpose();
   P_ = F_ * P_ * Ft + Q_;
 
+  // Success
   cout << "[K-0] Predicted!\n";
 }
 
 void KalmanFilter::Update(const VectorXd &z) {
   /**
-   * TODO: update the state by using Kalman Filter equations
+   * DONE: update the state by using Kalman Filter equations
    */
   VectorXd z_pred = H_ * x_;
   VectorXd y = z - z_pred;
@@ -54,13 +55,15 @@ void KalmanFilter::Update(const VectorXd &z) {
   MatrixXd I = MatrixXd::Identity(x_size, x_size);
   P_ = (I - K * H_) * P_;
 
+  // Success
   cout << "[K-1.1] Updated!\n";
 }
 
 void KalmanFilter::UpdateEKF(const VectorXd &z) {
   /**
-   * TODO: update the state by using Extended Kalman Filter equations
+   * DONE: update the state by using Extended Kalman Filter equations
    */
+
   // Convert from Cartesian to Polar coordinate system
   float px = x_(0);
   float py = x_(1);
@@ -70,13 +73,15 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   float rho = sqrt(px*px + py*py);
   float theta = atan2(py, px);
   float rho_dot = (px*vx + py*vy) / rho;
-
+  
+  // Avoid 0 division
   rho = (rho < 0.0001) ? 0.0001 : rho;
 
   VectorXd z_pred = VectorXd(3);
   z_pred << rho, theta, rho_dot;
   VectorXd y = z - z_pred;
 
+  // Ensure theta is in [-Pi, +Pi]
   y(1) = (y(1) > PI) ? (y(1) - 2*PI) : y(1);
   y(1) = (y(1) < -PI) ? (y(1) + 2*PI) : y(1);
 
@@ -92,5 +97,6 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   MatrixXd I = MatrixXd::Identity(x_size, x_size);
   P_ = (I - K * H_) * P_;
 
+  // Success
   cout << "[K-1.2] Updated!\n";
 }

@@ -44,6 +44,8 @@ class FusionEKF {
   Eigen::MatrixXd R_radar_;
   Eigen::MatrixXd H_laser_;
   Eigen::MatrixXd Hj_;
+
+  // Declare Process noise variances
   float noise_ax;
   float noise_ay;
 };

@@ -13,14 +13,14 @@ Tools::~Tools() {}
 VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
                               const vector<VectorXd> &ground_truth) {
   /**
-   * TODO: Calculate the RMSE here.
+   * DONE: Calculate the RMSE here.
    */
   VectorXd rmse(4);
   rmse << 0, 0, 0, 0;
 
   // Check the validity of the following inputs:
-  //  * the estimation vector size should equal ground truth vector size
-  //  * the estimation vector size should not be zero
+  //  * - The estimation vector size should equal ground truth vector size.
+  //  * - The estimation vector size should not be zero.
   if ((estimations.size() != ground_truth.size()) || (estimations.size() == 0))
   {
      cout << "Invalid estimation or ground_truth data!\n";
@@ -42,7 +42,8 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 
   // Calculate the squared root
   rmse = rmse.array().sqrt();
-  
+
+  // Success
   cout << "[T-0] RMSE calculated!\n";
   cout << rmse << "\n";
   return rmse;
@@ -50,8 +51,7 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 
 MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
   /**
-   * TODO:
-   * Calculate a Jacobian here.
+   * DONE: Calculate a Jacobian.
    */
   MatrixXd Hj(3, 4);
 
@@ -78,6 +78,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
       -(py/c1), (px/c1), 0, 0, 
       py*(vx*py - vy*px)/c3, px*(px*vy - py*vx)/c3, px/c2, py/c2;
    
+  // Success
   cout << "[T-1] Hj calculated!\n";
   return Hj; 
 }
